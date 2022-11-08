@@ -81,7 +81,7 @@ const Register = () => {
                     <input className='my-4 border-2 rounded p-2 border-indigo-900' name='file' type="file" placeholder='Upload Your image' />
                     <input className='border-2 rounded border-indigo-900  hover:bg-indigo-600 hover:text-white text-center mx-auto my-7 w-2/12' type="submit" value="Submit" />
                 </div>
-                <p className='text-center'><small>Already have an account?<Link className='text-indigo-700 hover:bg-sky-300 hover:text-white font-bold' to='/login'>Login</Link></small></p>
+                <p className='text-center'><small>Already have an account?<Link className='text-indigo-700 hover:bg-indigo-600 hover:text-white font-bold' to='/login'>Login</Link></small></p>
             </form>
 
         </div>
