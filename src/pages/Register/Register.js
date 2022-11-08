@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthContext';
 import UseTitle from '../../hooks/UstTitle';
@@ -7,9 +7,9 @@ const Register = () => {
     UseTitle('Register')
 
 
-    const { createUser } = useContext(AuthContext)
+    const { createUser, setUser } = useContext(AuthContext)
 
-    const [success, setSuccess] = useState(false)
+
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.form?.pathname || "/"
@@ -24,18 +24,19 @@ const Register = () => {
         console.log(name, email, password, imageURL);
 
         const userInfo = {
-            name: name,
+            displayName: name,
             email: email,
             password: password,
-            imageURL: imageURL
+            photoURL: imageURL
         }
 
         // user creation 
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user)
-                setSuccess(true)
+                const newUser = { ...userInfo }
+                setUser(newUser, user)
+
                 navigate(from, { replace: true })
             })
             .catch(err => {
@@ -80,6 +81,7 @@ const Register = () => {
                     <input className='my-4 border-2 rounded p-2 border-indigo-900' name='file' type="file" placeholder='Upload Your image' />
                     <input className='border-2 rounded border-indigo-900  hover:bg-indigo-600 hover:text-white text-center mx-auto my-7 w-2/12' type="submit" value="Submit" />
                 </div>
+                <p className='text-center'><small>Already have an account?<Link className='text-indigo-700 hover:bg-sky-300 hover:text-white font-bold' to='/login'>Login</Link></small></p>
             </form>
 
         </div>
