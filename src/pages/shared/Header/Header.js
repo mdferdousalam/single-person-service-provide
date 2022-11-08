@@ -26,13 +26,13 @@ const Header = () => {
                 </div>
             </div>
             <div className="navbar-end">
-                <button className="btn btn-ghost">
+                <button className="btn btn-ghost font-bold">
                     <Link to='/login'>Login</Link>
                 </button>
-                <button className="btn btn-ghost">
+                <button className="btn btn-ghost font-bold">
                     <Link to='/register'>Register</Link>
                 </button>
-                <button className="btn btn-ghost">
+                <button className="btn btn-ghost font-bold">
                     <Link to='/logout'>Logout</Link>
                 </button>
                 <button className="btn btn-ghost btn-circle">
