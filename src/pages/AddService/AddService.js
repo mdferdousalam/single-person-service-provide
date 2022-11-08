@@ -32,7 +32,7 @@ const AddService = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert("User registration success")
+                    alert("Service added successfully")
                     event.target.reset()
                 }
             })
