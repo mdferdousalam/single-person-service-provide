@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 const Header = () => {
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 sticky">
             <div className="navbar-start">
                 <div className="dropdown md:hidden">
                     <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -16,8 +16,13 @@ const Header = () => {
                     </ul>
                 </div>
             </div>
-            <div className="navbar-center md:justify-start">
-                <a className="btn btn-ghost normal-case text-xl">Electronic Security System Installer</a>
+            <div className="flex navbar-center md:justify-between">
+                <Link to='/' className="btn btn-ghost normal-case text-xl">Electronic Security System Installer</Link>
+                <div className='hidden md:inline'>
+                    <Link to='/home' className="btn btn-ghost normal-case text-xl ">Home</Link>
+                    <Link to='/blog' className="btn btn-ghost normal-case text-xl">Blog</Link>
+                    <Link to='/services' className="btn btn-ghost normal-case text-xl">Services</Link>
+                </div>
             </div>
             <div className="navbar-end">
                 <button className="btn btn-ghost btn-circle">
