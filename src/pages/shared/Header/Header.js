@@ -12,7 +12,6 @@ const Header = () => {
                         <li><Link to='/home'>Home</Link></li>
                         <li><Link to='/blog'>Blog</Link></li>
                         <li><Link to='/services'>Services</Link></li>
-
                     </ul>
                 </div>
             </div>
@@ -22,11 +21,19 @@ const Header = () => {
                     <Link to='/home' className="btn btn-ghost normal-case text-xl ">Home</Link>
                     <Link to='/blog' className="btn btn-ghost normal-case text-xl">Blog</Link>
                     <Link to='/services' className="btn btn-ghost normal-case text-xl">Services</Link>
+                    <Link to='/addservice' className="btn btn-ghost normal-case text-xl">Add Service</Link>
+                    <Link to='/myreviews' className="btn btn-ghost normal-case text-xl">My Reviews</Link>
                 </div>
             </div>
             <div className="navbar-end">
-                <button className="btn btn-ghost btn-circle">
-                    Login
+                <button className="btn btn-ghost">
+                    <Link to='/login'>Login</Link>
+                </button>
+                <button className="btn btn-ghost">
+                    <Link to='/register'>Register</Link>
+                </button>
+                <button className="btn btn-ghost">
+                    <Link to='/logout'>Logout</Link>
                 </button>
                 <button className="btn btn-ghost btn-circle">
                     <div className="indicator">

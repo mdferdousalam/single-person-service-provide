@@ -1,13 +1,13 @@
 import React from 'react';
 import UseTitle from '../../hooks/UstTitle';
 
-const Blogs = () => {
-    UseTitle('Blogs')
+const Logout = () => {
+    UseTitle('Log Out')
     return (
         <div>
-            <h3>Blogs</h3>
+            <h2>Logout</h2>
         </div>
     );
 };
 
-export default Blogs;
+export default Logout;
