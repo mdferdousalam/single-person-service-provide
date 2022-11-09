@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
                 loader: () => fetch('https://b6a11-service-review-server-side-seven.vercel.app/services')
             },
             {
-                path: '/services/datails/:id',
+                path: '/services/:id',
                 element: <ServiceDetails></ServiceDetails>,
                 loader: ({ params }) => fetch(`https://b6a11-service-review-server-side-seven.vercel.app/services/${params.id}`)
 

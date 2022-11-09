@@ -14,18 +14,21 @@ const Header = () => {
 
 
     return (
-        <div className="navbar bg-base-100 sticky">
+        <div className="navbar bg-base-100 sticky z-50">
             <div className="navbar-start">
-                <div className="dropdown md:hidden">
+                <div className="dropdown md:hidden z-10">
                     <label tabIndex={0} className="btn btn-ghost btn-circle">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
                     </label>
-                    <ul tabIndex={1} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul tabIndex={0} className="z-20 menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link className='hover:bg-indigo-600 hover:text-white' to='/home'>Home</Link></li>
                         <li><Link className='hover:bg-indigo-600 hover:text-white' to='/blog'>Blog</Link></li>
-                        {/* <li><Link className='hover:bg-indigo-600 hover:text-white' to='/services'>Services</Link></li> */}
-                        <li><Link className='hover:bg-indigo-600 hover:text-white' to='/addservice'  >Add Service</Link></li>
-                        <li><Link className='hover:bg-indigo-600 hover:text-white' to='/myreviews'  >My Reviews</Link></li>
+                        <li><Link className='hover:bg-indigo-600 hover:text-white' to='/services'>Services</Link></li>
+                        <li><Link className='hover:bg-indigo-600 hover:text-white' to='/addservice'>Add Service</Link></li>
+                        <li><Link className='hover:bg-indigo-600 hover:text-white' to='/myreviews'>My Reviews</Link></li>
+                        <li><Link className='hover:bg-indigo-600 hover:text-white' to='/myreviews'>Login</Link></li>
+                        <li><Link className='hover:bg-indigo-600 hover:text-white' to='/myreviews'>Register</Link></li>
+                        <li><Link className='hover:bg-indigo-600 hover:text-white' to='/myreviews'>Log out</Link></li>
                     </ul>
                 </div>
             </div>
@@ -37,7 +40,7 @@ const Header = () => {
                             <>
                                 <Link to='/home' className="btn btn-ghost normal-case text-xl hover:bg-indigo-600 hover:text-white ">Home</Link>
                                 <Link to='/blog' className="btn btn-ghost normal-case text-xl hover:bg-indigo-600 hover:text-white">Blog</Link>
-                                {/* <Link to='/services' className="btn btn-ghost normal-case text-xl hover:bg-indigo-600 hover:text-white">Services</Link> */}
+                                <Link to='/services' className="btn btn-ghost normal-case text-xl hover:bg-indigo-600 hover:text-white">Services</Link>
                                 <Link to='/addservice' className="btn btn-ghost normal-case text-xl hover:bg-indigo-600 hover:text-white">Add Service</Link>
                                 <Link to='/myreviews' className="btn btn-ghost normal-case text-xl hover:bg-indigo-600 hover:text-white">My Reviews</Link>
                             </>
@@ -48,28 +51,29 @@ const Header = () => {
                                 <Link to='/services' className="btn btn-ghost normal-case text-xl hover:bg-indigo-600 hover:text-white">Services</Link>
                             </>
                     }
-                    {
-                        user?.uid ?
-                            <>
-                                <button onClick={handleLogOut} className="btn btn-ghost font-bold hover:bg-indigo-600 hover:text-white">
-                                    <Link to='/logout'>Logout</Link>
-                                </button>
 
-                            </>
-                            :
-                            <>
-                                <button className="btn btn-ghost font-bold hover:bg-indigo-600 hover:text-white">
-                                    <Link to='/login'>Login</Link>
-                                </button>
-                                <button className="btn btn-ghost font-bold hover:bg-indigo-600 hover:text-white">
-                                    <Link to='/register'>Register</Link>
-                                </button>
-                            </>
-                    }
 
                 </div>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end hidden md:inline">
+                {
+                    user?.uid ?
+                        <>
+                            <button onClick={handleLogOut} className="btn btn-ghost font-bold hover:bg-indigo-600 hover:text-white">
+                                <Link to='/logout'>Logout</Link>
+                            </button>
+
+                        </>
+                        :
+                        <>
+                            <button className="btn btn-ghost font-bold hover:bg-indigo-600 hover:text-white">
+                                <Link to='/login'>Login</Link>
+                            </button>
+                            <button className="btn btn-ghost font-bold hover:bg-indigo-600 hover:text-white">
+                                <Link to='/register'>Register</Link>
+                            </button>
+                        </>
+                }
             </div>
         </div>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import UseTitle from '../../hooks/UstTitle';
 import SingleService from './SingleService';
 
@@ -8,7 +8,7 @@ const Services = () => {
 
     const services = useLoaderData();
 
-    console.log(services)
+
 
 
     return (
