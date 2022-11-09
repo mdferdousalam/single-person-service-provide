@@ -17,7 +17,7 @@ const SingleService = ({ service }) => {
                 </PhotoProvider>
                 <div className="card-body">
                     <h2 className="card-title">{title}</h2>
-                    <p>{serviceDetails.slice(0, 100) + " ..."}</p>
+                    <p className='text-justify'>{serviceDetails.slice(0, 100) + " ..."}</p>
                     <div className="card-actions justify-end">
                         <p className='font-medium'><span >Price: BDT</span> {price}</p>
                         <button className="btn btn-primary"><Link to={`/services/${_id}`} >Details</Link></button>

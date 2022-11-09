@@ -21,11 +21,13 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch('https://b6a11-service-review-server-side-seven.vercel.app/serviceslimit')
             },
             {
                 path: '/home',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch('https://b6a11-service-review-server-side-seven.vercel.app/serviceslimit')
             },
             {
                 path: '/blog',

@@ -6,13 +6,13 @@ const ServiceDetails = () => {
     const service = useLoaderData()
     const { price, serviceDetails, serviceImageUrl, title } = service;
     return (
-        <div className="flex flex-col w-full border-opacity-50 mx-auto">
-            <div className="grid  card bg-base-300 rounded-box place-items-center">
+        <div className="flex flex-col w-full p-4 border-opacity-50 mx-auto">
+            <div className="grid  card bg-base-300  p-16 text-justify rounded-box place-items-center">
                 <img src={serviceImageUrl} alt="" />
-                <p className='text-xl font-medium'>Service: {title}</p>
-                <p>Price: BDT {price}</p>
-                <p>Description: {serviceDetails}</p>
-                <Link to='/services'><button className="btn btn-primary">Back</button></Link>
+                <p className='text-xl p-4 font-medium'>Service: {title}</p>
+                <p className='pb-4'>Price: BDT {price}</p>
+                <p className='px-10'>Description: {serviceDetails}</p>
+                <Link to='/services'><button className="btn btn-primary mt-8">Back</button></Link>
             </div>
             <div className="divider">Reviews</div>
             <div className="grid card bg-base-300 rounded-box place-items-center">content</div>

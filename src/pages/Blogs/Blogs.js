@@ -4,7 +4,7 @@ import UseTitle from '../../hooks/UstTitle';
 const Blogs = () => {
     UseTitle('Blogs')
     return (
-        <div>
+        <div className='mb-96'>
             <div tabIndex={0} className="collapse border border-base-300 bg-base-100 rounded-box">
                 <div className="collapse-title text-xl font-medium">
                     Difference Between SQL and NoSQL ?

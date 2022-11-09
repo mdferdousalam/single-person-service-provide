@@ -3,7 +3,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className="footer footer-center p-10 bg-primary text-primary-content mt-40 relative  bottom-0">
+        <footer className="footer footer-center p-10 bg-primary text-primary-content mt-40  bottom-0">
             <div>
                 <img width="50" height="50" className="inline-block fill-current rounded-full" src="https://pbs.twimg.com/profile_images/662978247748022272/gBgvYj5a_400x400.jpg" alt="" />
 
