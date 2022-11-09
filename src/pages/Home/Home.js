@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import UseTitle from '../../hooks/UstTitle';
 import SingleService from '../Services/SingleService';
+import Quotation from './Quote/Quotation';
 
 
 const Home = () => {
@@ -22,6 +23,8 @@ const Home = () => {
             <div className='mt-10 grid grid-cols-1 w-1/4 p-4 mx-auto'>
                 <button className="btn btn-primary"><Link className='' to='/services'>See All Services</Link></button>
             </div>
+
+            <Quotation></Quotation>
 
         </div>
     );
