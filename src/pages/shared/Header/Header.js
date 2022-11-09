@@ -1,14 +1,19 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../../context/AuthProvider/AuthContext';
+import { useNavigate } from 'react-router-dom';
+
+
 const Header = () => {
 
     const { logOut, user } = useContext(AuthContext)
-
+    const navigate = useNavigate();
 
     const handleLogOut = () => {
         logOut()
-            .then(() => { })
+            .then(() => {
+                navigate('/home')
+            })
             .catch((error) => console.error(error))
     }
 
@@ -23,12 +28,12 @@ const Header = () => {
                     <ul tabIndex={0} className="z-20 menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link className='hover:bg-indigo-600 hover:text-white' to='/home'>Home</Link></li>
                         <li><Link className='hover:bg-indigo-600 hover:text-white' to='/blog'>Blog</Link></li>
-                        <li><Link className='hover:bg-indigo-600 hover:text-white' to='/services'>Services</Link></li>
+                        {/* <li><Link className='hover:bg-indigo-600 hover:text-white' to='/services'>Services</Link></li> */}
                         <li><Link className='hover:bg-indigo-600 hover:text-white' to='/addservice'>Add Service</Link></li>
                         <li><Link className='hover:bg-indigo-600 hover:text-white' to='/myreviews'>My Reviews</Link></li>
-                        <li><Link className='hover:bg-indigo-600 hover:text-white' to='/myreviews'>Login</Link></li>
-                        <li><Link className='hover:bg-indigo-600 hover:text-white' to='/myreviews'>Register</Link></li>
-                        <li><Link className='hover:bg-indigo-600 hover:text-white' to='/myreviews'>Log out</Link></li>
+                        <li><Link className='hover:bg-indigo-600 hover:text-white' to='/login'>Login</Link></li>
+                        <li><Link className='hover:bg-indigo-600 hover:text-white' to='/register'>Register</Link></li>
+                        <li><Link className='hover:bg-indigo-600 hover:text-white' onClick={handleLogOut} >Log out</Link></li>
                     </ul>
                 </div>
             </div>
@@ -40,7 +45,7 @@ const Header = () => {
                             <>
                                 <Link to='/home' className="btn btn-ghost normal-case text-xl hover:bg-indigo-600 hover:text-white ">Home</Link>
                                 <Link to='/blog' className="btn btn-ghost normal-case text-xl hover:bg-indigo-600 hover:text-white">Blog</Link>
-                                <Link to='/services' className="btn btn-ghost normal-case text-xl hover:bg-indigo-600 hover:text-white">Services</Link>
+                                {/* <Link to='/services' className="btn btn-ghost normal-case text-xl hover:bg-indigo-600 hover:text-white">Services</Link> */}
                                 <Link to='/addservice' className="btn btn-ghost normal-case text-xl hover:bg-indigo-600 hover:text-white">Add Service</Link>
                                 <Link to='/myreviews' className="btn btn-ghost normal-case text-xl hover:bg-indigo-600 hover:text-white">My Reviews</Link>
                             </>
@@ -48,7 +53,7 @@ const Header = () => {
                             <>
                                 <Link to='/home' className="btn btn-ghost normal-case text-xl hover:bg-indigo-600 hover:text-white">Home</Link>
                                 <Link to='/blog' className="btn btn-ghost normal-case text-xl hover:bg-indigo-600 hover:text-white">Blog</Link>
-                                <Link to='/services' className="btn btn-ghost normal-case text-xl hover:bg-indigo-600 hover:text-white">Services</Link>
+                                {/* <Link to='/services' className="btn btn-ghost normal-case text-xl hover:bg-indigo-600 hover:text-white">Services</Link> */}
                             </>
                     }
 
@@ -60,7 +65,7 @@ const Header = () => {
                     user?.uid ?
                         <>
                             <button onClick={handleLogOut} className="btn btn-ghost font-bold hover:bg-indigo-600 hover:text-white">
-                                <Link to='/logout'>Logout</Link>
+                                <Link  >Logout</Link>
                             </button>
 
                         </>
