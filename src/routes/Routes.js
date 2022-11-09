@@ -10,6 +10,7 @@ import MyReviews from "../pages/MyReviews/MyReviews";
 import AddService from "../pages/AddService/AddService";
 import Register from "../pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
+import ServiceDetails from "../pages/Services/ServiceDetails";
 
 
 export const router = createBrowserRouter([
@@ -31,10 +32,6 @@ export const router = createBrowserRouter([
                 element: <Blogs></Blogs>
             },
             {
-                path: '/services',
-                element: <Services></Services>
-            },
-            {
                 path: '/login',
                 element: <Login></Login>
             },
@@ -43,16 +40,30 @@ export const router = createBrowserRouter([
                 element: <Logout></Logout>
             },
             {
-                path: '/myreviews',
-                element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
+                path: '/register',
+                element: <Register></Register>
+            },
+            {
+                path: '/services',
+                element: <Services></Services>,
+                loader: () => fetch('https://b6a11-service-review-server-side-seven.vercel.app/services')
+            },
+            {
+                path: '/services/datails/:id',
+                element: <ServiceDetails></ServiceDetails>,
+                loader: ({ params }) => fetch(`https://b6a11-service-review-server-side-seven.vercel.app/services/${params.id}`)
+
             },
             {
                 path: '/addservice',
                 element: <PrivateRoute><AddService></AddService></PrivateRoute>
             },
             {
-                path: '/register',
-                element: <Register></Register>
+                path: '/myreviews',
+                element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
+            },
+            {
+                path: '/addreview'
             }
         ]
 
