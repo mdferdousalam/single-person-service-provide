@@ -8,7 +8,7 @@ const Header = () => {
 
     const { logOut, user } = useContext(AuthContext)
     const navigate = useNavigate();
-
+    console.log(user)
     const handleLogOut = () => {
         logOut()
             .then(() => {
@@ -19,7 +19,7 @@ const Header = () => {
 
 
     return (
-        <div className="navbar bg-base-100 sticky z-50">
+        <div className="navbar bg-base-100 pt-10 sticky z-50">
             <div className="navbar-start">
                 <div className="dropdown md:hidden z-10">
                     <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -64,9 +64,18 @@ const Header = () => {
                 {
                     user?.uid ?
                         <>
-                            <button onClick={handleLogOut} className="btn btn-ghost font-bold hover:bg-indigo-600 hover:text-white">
-                                <Link  >Logout</Link>
-                            </button>
+                            <div className='flex justify-evenly  '>
+                                <button onClick={handleLogOut} className="btn btn-ghost hover:bg-indigo-600 text-xl hover:text-white">
+                                    <Link  >Logout</Link>
+                                </button>
+                                <button className="btn btn-ghost content-center btn-circle">
+                                    <div className="avatar online">
+                                        <div className="w-24 rounded-full">
+                                            <img src={user.photoURL} title={user.displayName} alt="" />
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
 
                         </>
                         :
