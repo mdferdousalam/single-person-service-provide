@@ -37,13 +37,30 @@ const ServiceDetails = () => {
             </div>
             <div className="divider text-xl font-medium">Reviews</div>
             <div className="grid card bg-base-300 rounded-box place-items-center">
-                {
-                    reviews.map(review => <ServiceReview
-                        key={review._id}
-                        review={review}
 
-                    ></ServiceReview>)
-                }
+                <div className="overflow-x-auto w-full">
+                    <table className="table w-full">
+                        <thead>
+                            <tr>
+
+                                <th>Name</th>
+                                <th>Review</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                reviews.map((singlereview, index) => <ServiceReview
+                                    key={index}
+                                    singlereview={singlereview}
+
+                                ></ServiceReview>)
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+
             </div>
 
         </div>
