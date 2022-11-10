@@ -9,6 +9,10 @@ import { AuthContext } from '../../context/AuthProvider/AuthContext';
 
 const Login = () => {
     UseTitle('Login')
+
+
+
+
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.form?.pathname || "/"
@@ -17,7 +21,6 @@ const Login = () => {
 
 
     const { providerLogin, userEmail, setuserEmail, setUser, signIn, auth } = useContext(AuthContext)
-
 
 
 
@@ -33,6 +36,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 navigate(from, { replace: true })
+
             })
             .catch(error => console.log(error))
     }
@@ -76,6 +80,8 @@ const Login = () => {
                 console.log(error);
             })
     }
+
+
 
     return (
         <div>

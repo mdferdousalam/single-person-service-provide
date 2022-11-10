@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+
+import UseTitle from '../../hooks/UstTitle';
+import ServiceReview from './ServiceReview';
 
 
 const ServiceDetails = () => {
+    UseTitle('Service Details')
 
     const service = useLoaderData()
     const { price, serviceDetails, serviceImageUrl, _id, title } = service;
 
+    const [reviews, setReviews] = useState([])
 
 
+    useEffect(() => {
+        fetch(`https://b6a11-service-review-server-side-seven.vercel.app/reviews/${_id}`)
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [_id])
 
     return (
         <div className="flex flex-col w-full p-4 border-opacity-50 mx-auto">
@@ -22,8 +32,16 @@ const ServiceDetails = () => {
                     <Link to='/services'><button className="btn btn-primary mt-8 px-10">Back</button></Link>
                 </div>
             </div>
-            <div className="divider">Reviews</div>
-            <div className="grid card bg-base-300 rounded-box place-items-center">content</div>
+            <div className="divider text-xl font-medium">Reviews</div>
+            <div className="grid card bg-base-300 rounded-box place-items-center">
+                {
+                    reviews.map(review => <ServiceReview
+                        key={review._id}
+                        review={review}
+                    ></ServiceReview>)
+                }
+            </div>
+
         </div>
     );
 };

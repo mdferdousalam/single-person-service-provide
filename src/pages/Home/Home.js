@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+
 import UseTitle from '../../hooks/UstTitle';
 import SingleService from '../Services/SingleService';
 import Quotation from './Quote/Quotation';
 
 
+
 const Home = () => {
     UseTitle('Home')
     const services = useLoaderData()
+
     return (
         <div >
             <h2 className='text-2xl text-center font-bold my-4'>My Service Area</h2>

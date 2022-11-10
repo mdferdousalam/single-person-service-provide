@@ -7,7 +7,7 @@ const Register = () => {
     UseTitle('Register')
 
 
-    const { createUser, setUser } = useContext(AuthContext)
+    const { createUser, setUser, updateUserProfile } = useContext(AuthContext)
 
 
     const navigate = useNavigate()
@@ -36,12 +36,22 @@ const Register = () => {
                 const user = result.user;
                 const newUser = { ...userInfo }
                 setUser(newUser, user)
-
+                handleUpdateUserProfile(name, imageURL)
                 navigate(from, { replace: true })
             })
             .catch(err => {
                 console.log(err);
             })
+
+        const handleUpdateUserProfile = (name, imageURL) => {
+            const profileInformation = {
+                displayName: name,
+                photoURL: imageURL
+            }
+            updateUserProfile(profileInformation)
+                .then(() => { })
+                .catch((err) => { })
+        }
 
 
         // user info send to database via server

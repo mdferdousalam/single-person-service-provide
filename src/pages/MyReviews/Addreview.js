@@ -1,15 +1,15 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { getAuth } from 'firebase/auth';
+import UseTitle from '../../hooks/UstTitle';
 
 const Addreview = () => {
-
+    UseTitle('Add Review')
     const navigate = useNavigate()
     const location = useLocation()
     const auth = getAuth();
 
     const email = auth.currentUser.email;
-
     const serviceId = location.pathname.slice(-24)
 
 
