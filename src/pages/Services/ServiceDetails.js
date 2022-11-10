@@ -5,6 +5,8 @@ import UseTitle from '../../hooks/UstTitle';
 import ServiceReview from './ServiceReview';
 
 
+
+
 const ServiceDetails = () => {
     UseTitle('Service Details')
 
@@ -12,6 +14,7 @@ const ServiceDetails = () => {
     const { price, serviceDetails, serviceImageUrl, _id, title } = service;
 
     const [reviews, setReviews] = useState([])
+
 
 
     useEffect(() => {
@@ -38,6 +41,7 @@ const ServiceDetails = () => {
                     reviews.map(review => <ServiceReview
                         key={review._id}
                         review={review}
+
                     ></ServiceReview>)
                 }
             </div>
