@@ -11,7 +11,7 @@ import Register from "../pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import ServiceDetails from "../pages/Services/ServiceDetails";
 import Addreview from "../pages/MyReviews/Addreview";
-import UpdateUser from "../pages/Login/UpdateUser";
+
 
 
 export const router = createBrowserRouter([
@@ -65,11 +65,6 @@ export const router = createBrowserRouter([
             {
                 path: '/services/servicedetails/:id',
                 element: <PrivateRoute><Addreview></Addreview></PrivateRoute>
-            },
-            {
-                path: '/user',
-                element: <UpdateUser></UpdateUser>
-
             }
         ]
 
