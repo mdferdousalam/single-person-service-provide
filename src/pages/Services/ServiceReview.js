@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const ServiceReview = ({ singlereview }) => {
-    const { displayName, photoURL, review, serviceId } = singlereview
+    const { displayName, photoURL, review } = singlereview
     console.log(singlereview)
 
 
